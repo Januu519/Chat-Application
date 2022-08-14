@@ -8,24 +8,24 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Circle?>
 
-<AnchorPane prefHeight="651.0" prefWidth="414.0" style="-fx-background-color: #1e272e;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.chatRoom.controller.ClientFormController">
+<AnchorPane fx:id="chatContext" prefHeight="651.0" prefWidth="414.0" style="-fx-background-color: #1e272e;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.chatRoom.controller.ClientFormController">
    <children>
       <AnchorPane prefHeight="63.0" prefWidth="414.0" style="-fx-background-color: #22a6b3; -fx-background-radius: 0;">
          <children>
             <Circle fill="#be1fff" layoutX="44.0" layoutY="32.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
-            <Label layoutX="76.0" layoutY="22.0" text="Username" textFill="#f2f2f2" />
+            <Label fx:id="boxNameLbl" layoutX="76.0" layoutY="22.0" text="Username" textFill="#f2f2f2" />
          </children>
       </AnchorPane>
-      <JFXTextArea layoutX="-2.0" layoutY="65.0" prefHeight="516.0" prefWidth="414.0" />
-      <TextField layoutX="14.0" layoutY="597.0" prefHeight="40.0" prefWidth="326.0" style="-fx-background-radius: 50; -fx-background-color: #22a6b3;" />
-      <ImageView fitHeight="40.0" fitWidth="46.0" layoutX="285.0" layoutY="597.0" pickOnBounds="true" preserveRatio="true">
+      <JFXTextArea fx:id="chatBox" layoutX="-2.0" layoutY="65.0" prefHeight="516.0" prefWidth="414.0" />
+      <TextField fx:id="typeField" layoutX="14.0" layoutY="597.0" prefHeight="40.0" prefWidth="340.0" style="-fx-background-radius: 50; -fx-background-color: #22a6b3;" />
+      <ImageView fx:id="galleryId" fitHeight="40.0" fitWidth="46.0" layoutX="302.0" layoutY="597.0" onMouseClicked="#galleryAction" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/photo-camera.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="48.0" fitWidth="53.0" layoutX="352.0" layoutY="593.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="40.0" fitWidth="46.0" layoutX="360.0" layoutY="597.0" onMouseClicked="#handleSendEvent" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assets/send-message%20(1).png" />
+            <Image url="@../assets/send-message.png" />
          </image>
       </ImageView>
    </children>
