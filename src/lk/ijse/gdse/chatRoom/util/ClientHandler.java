@@ -61,11 +61,11 @@ public class ClientHandler implements Runnable{
     private void serch() {
         for (ClientHandler clientHandler:clientHandlers) {
             Socket s = clientHandler.socket;
-            System.out.println("in for each : "+s);
+           // System.out.println("in for each : "+s);
             String name = clientHandler.clientName;
-            System.out.println("client name is : "+name);
+         //   System.out.println("client name is : "+name);
             String msg = clientHandler.message;
-            System.out.println("client mesage is : "+msg);
+           // System.out.println("client mesage is : "+msg);
         }
     }
 

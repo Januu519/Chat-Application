@@ -54,7 +54,7 @@ public class FirstPageFormController implements Initializable {
         ClientFormController.chatName = userName.getText();
         userName.clear();
 
-        Parent parent = FXMLLoader.load(getClass().getResource("../views/ClientForm.fxml.fxml"));
+        Parent parent = FXMLLoader.load(getClass().getResource("../views/ClientForm.fxml"));
         Stage stage1 = new Stage();
         stage1.setScene(new Scene(parent));
         stage1.show();
@@ -63,7 +63,7 @@ public class FirstPageFormController implements Initializable {
         new Thread(() -> {
             try {
                 socket = serverSocket.accept();
-                System.out.println("Client is connected...!");
+              //  System.out.println("Client is connected...!");
 
                 ClientHandler clientHandler = new ClientHandler(socket);
                 Thread thread = new Thread(clientHandler);

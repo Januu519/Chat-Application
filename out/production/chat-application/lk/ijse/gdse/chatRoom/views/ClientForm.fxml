@@ -16,7 +16,7 @@
             <Label fx:id="boxNameLbl" layoutX="76.0" layoutY="22.0" text="Username" textFill="#f2f2f2" />
          </children>
       </AnchorPane>
-      <JFXTextArea fx:id="chatBox" layoutX="-2.0" layoutY="65.0" prefHeight="516.0" prefWidth="414.0" />
+      <JFXTextArea fx:id="chatBox" layoutX="-2.0" layoutY="65.0" prefHeight="516.0" prefWidth="414.0" unFocusColor="#171617" />
       <TextField fx:id="typeField" layoutX="14.0" layoutY="597.0" prefHeight="40.0" prefWidth="340.0" style="-fx-background-radius: 50; -fx-background-color: #22a6b3;" />
       <ImageView fx:id="galleryId" fitHeight="40.0" fitWidth="46.0" layoutX="302.0" layoutY="597.0" onMouseClicked="#galleryAction" pickOnBounds="true" preserveRatio="true">
          <image>
