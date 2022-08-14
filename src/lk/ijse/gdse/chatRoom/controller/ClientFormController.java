@@ -37,13 +37,21 @@ public class ClientFormController implements Initializable {
     }
 
     public void handleSendEvent(MouseEvent mouseEvent) throws IOException {
-
+        goMessage();
     }
 
-    public void goMessage() {
+    public void goMessage() throws IOException {
 
+        dataInputStream = new DataInputStream(socket.getInputStream());
+        dataOutputStream = new DataOutputStream(socket.getOutputStream());
 
+        dataOutputStream.writeUTF(typeField.getText().trim());
+        dataOutputStream.flush();
+        typeField.clear();
     }
+
+
+
 
     public void enterEvent(KeyEvent keyEvent)  {
 
