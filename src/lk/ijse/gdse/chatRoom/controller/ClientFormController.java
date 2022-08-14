@@ -32,6 +32,7 @@ public class ClientFormController implements Initializable {
 
 
     public void galleryAction(MouseEvent mouseEvent) {
+        System.out.println("clicked camera");
 
     }
 
