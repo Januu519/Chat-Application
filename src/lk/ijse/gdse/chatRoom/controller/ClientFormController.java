@@ -52,10 +52,14 @@ public class ClientFormController implements Initializable {
 
 
 
-
-    public void enterEvent(KeyEvent keyEvent)  {
-
+    public void enterEvent(KeyEvent keyEvent) throws IOException {
+        if (keyEvent.getCode() == KeyCode.ENTER) {
+            goMessage();
+        }
     }
+
+
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
