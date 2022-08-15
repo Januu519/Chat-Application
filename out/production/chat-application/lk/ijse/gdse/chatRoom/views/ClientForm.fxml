@@ -29,7 +29,10 @@
          </children>
       </AnchorPane>
       <JFXTextArea fx:id="chatBox" layoutX="14.0" layoutY="75.0" prefHeight="509.0" prefWidth="384.0" style="-fx-background-color: #00d2d3;" unFocusColor="#171617" />
-      <TextField fx:id="typeField" layoutX="14.0" layoutY="597.0" prefHeight="40.0" prefWidth="340.0" style="-fx-background-radius: 50; -fx-background-color: #22a6b3;" />
+      <TextField fx:id="typeField" layoutX="14.0" layoutY="597.0" prefHeight="40.0" prefWidth="340.0" promptText="Type a message" style="-fx-background-radius: 50; -fx-background-color: #22a6b3;">
+         <font>
+            <Font size="18.0" />
+         </font></TextField>
       <ImageView fx:id="galleryId" fitHeight="40.0" fitWidth="46.0" layoutX="302.0" layoutY="597.0" onMouseClicked="#galleryAction" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/photo-camera.png" />
