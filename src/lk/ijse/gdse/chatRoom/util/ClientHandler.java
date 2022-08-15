@@ -24,7 +24,7 @@ public class ClientHandler implements Runnable{
             this.clientName = FirstPageFormController.name;
             clientHandlers.add(this);
 
-            broadcastMessage(clientName+" is connected to the chat...!");
+            broadcastMessage(clientName /*+" is connected to the chat...!"*/);
         } catch (IOException e) {
             closeAll(socket);
         }
