@@ -13,6 +13,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.gdse.chatRoom.util.ClientHandler;
 
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -26,7 +28,11 @@ public class FirstPageFormController implements Initializable {
 
     ServerSocket serverSocket;
     Socket socket;
+
+
     public static String name;
+
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -63,7 +69,7 @@ public class FirstPageFormController implements Initializable {
         new Thread(() -> {
             try {
                 socket = serverSocket.accept();
-              //  System.out.println("Client is connected...!");
+                System.out.println("Client is connected...!");
 
                 ClientHandler clientHandler = new ClientHandler(socket);
                 Thread thread = new Thread(clientHandler);
@@ -82,5 +88,4 @@ public class FirstPageFormController implements Initializable {
             goChatPage();
         }
     }
-
 }

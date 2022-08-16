@@ -14,9 +14,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.net.Socket;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -33,9 +31,20 @@ public class ClientFormController implements Initializable {
     DataInputStream dataInputStream;
     DataOutputStream dataOutputStream;
 
+    private FileChooser fileChooser;
+    private File filePath;
+    private PrintStream writer;
+
+
 
     public void galleryAction(MouseEvent mouseEvent) {
-        System.out.println("clicked camera");
+        /*System.out.println("clicked camera");*/
+        Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+        fileChooser = new FileChooser();
+        fileChooser.setTitle("Open Image");
+        this.filePath = fileChooser.showOpenDialog(stage);
+        writer.println(boxNameLbl.getText() + " " + "img" + filePath.getPath());
+
 
 
     }
@@ -51,9 +60,10 @@ public class ClientFormController implements Initializable {
         dataInputStream = new DataInputStream(socket.getInputStream());
         dataOutputStream = new DataOutputStream(socket.getOutputStream());
 
-        dataOutputStream.writeUTF(typeField.getText().trim());
-        dataOutputStream.flush();
-        typeField.clear();
+       String sendThing = boxNameLbl.getText()+" : "+typeField.getText();
+       dataOutputStream.writeUTF(sendThing.trim());
+       dataOutputStream.flush();
+       typeField.clear();
     }
 
 
@@ -80,7 +90,8 @@ public class ClientFormController implements Initializable {
 
                 while (socket.isConnected()) {
                     String message = dataInputStream.readUTF();
-                    chatBox.appendText("\n" + chatName + " : " + message);
+                    System.out.println("last message : "+message);
+                    chatBox.appendText(message+"\n");
                 }
 
             } catch (IOException e) {

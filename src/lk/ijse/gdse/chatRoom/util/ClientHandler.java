@@ -24,7 +24,7 @@ public class ClientHandler implements Runnable{
             this.clientName = FirstPageFormController.name;
             clientHandlers.add(this);
 
-            broadcastMessage(clientName /*+" is connected to the chat...!"*/);
+            broadcastMessage(clientName +" is connected to the chat...!");
         } catch (IOException e) {
             closeAll(socket);
         }
@@ -37,7 +37,9 @@ public class ClientHandler implements Runnable{
         while (socket.isConnected()){
             try {
                 messageFromClient =dataInputStream.readUTF();
+                System.out.println("in run method : "+messageFromClient);
                 broadcastMessage(messageFromClient);
+
             } catch (IOException e) {
                 closeAll(socket);
                 break;
@@ -49,8 +51,7 @@ public class ClientHandler implements Runnable{
         serch();
         for (ClientHandler clientHandler : clientHandlers) {
             try {
-                String msg = clientHandler.message;
-                clientHandler.dataOutputStream.writeUTF(clientHandler.clientName+" : "+message+"\n");
+                clientHandler.dataOutputStream.writeUTF(message+"\n");
                 clientHandler.dataOutputStream.flush();
             } catch (IOException e) {
                 closeAll(socket);
